@@ -7,19 +7,17 @@ container.setAttribute('class', 'container')
 app.appendChild(logo)
 app.appendChild(container)
 
-// Create a request variable and assign a new XMLHttpRequest object to it.
 var request = new XMLHttpRequest()
 
-// Open a new connection, using the GET request on the URL endpoint
 request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
 
 request.onload = function () {
-// Begin accessing JSON data here
+
 var data = JSON.parse(this.response)
 
 if (request.status >= 200 && request.status < 400) {
 data.forEach(movie => {
-  // console.table(movie.director, movie.rt_score)
+  
 const card = document.createElement('div')
 card.setAttribute('class', 'card')
 
@@ -31,9 +29,11 @@ movie.description = movie.description.substring(0, 400)
 p.textContent = `${movie.description}...`
 
 const h2 = document.createElement('h2')
-h2.textContent = movie.producer
+h2.textContent = movie.director
+
 const h3 = document.createElement('h3')
-h3.textContent = movie.release_date + ', ' + `${movie.rt_score}%` 
+h3.textContent = movie.producer
+
 
 container.appendChild(card)
 card.appendChild(h1)
@@ -47,5 +47,6 @@ card.appendChild(p)
   console.log('error')
 }
 }
-// Send request
+
 request.send()
+
