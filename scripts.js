@@ -12,11 +12,11 @@ var request = new XMLHttpRequest()
 function myFunction() {
   var x = document.getElementById("search").value;
   document.getElementById("demo").innerHTML = x;
-}
+
 
 // zoekwoord =..... 
 request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
-// ('GET', 'https://ghibliapi.herokuapp.com/films?title=' + 'zoekwoord'), true
+// request.open('GET', 'https://ghibliapi.herokuapp.com/films?title=' + x), true
 
 request.onload = function () {
 
@@ -55,5 +55,5 @@ card.appendChild(p)
   
 }
 }
-
+}
 request.send()
