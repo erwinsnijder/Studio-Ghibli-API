@@ -9,7 +9,14 @@ app.appendChild(container)
 
 var request = new XMLHttpRequest()
 
+function myFunction() {
+  var x = document.getElementById("search").value;
+  document.getElementById("demo").innerHTML = x;
+}
+
+// zoekwoord =..... 
 request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
+// ('GET', 'https://ghibliapi.herokuapp.com/films?title=' + 'zoekwoord'), true
 
 request.onload = function () {
 
@@ -34,7 +41,6 @@ h2.textContent = movie.director
 const h3 = document.createElement('h3')
 h3.textContent = movie.producer
 
-
 container.appendChild(card)
 card.appendChild(h1)
 card.appendChild(h2)
@@ -45,8 +51,9 @@ card.appendChild(p)
 } else
 {
   console.log('error')
+
+  
 }
 }
 
 request.send()
-
