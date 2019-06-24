@@ -30,9 +30,8 @@ movie.description = movie.description.substring(0, 300)
 p.textContent = `${movie.description}...`
 
 container.appendChild(card)
-
-container.appendChild(h1)
-container.appendChild(p)
+card.appendChild(h1)
+card.appendChild(p)
 })
 
 } else
