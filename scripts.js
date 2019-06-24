@@ -39,11 +39,6 @@ container.appendChild(card)
 // Each card will contain an h1 and a p
 container.appendChild(h1)
 container.appendChild(p)
-
-
-// Log each movie's title
-// console.log(movie.title)
-// console.log(movie.description)
 })
 } else
 {
