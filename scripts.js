@@ -10,13 +10,16 @@ app.appendChild(container)
 var request = new XMLHttpRequest()
 
 function myFunction() {
-  var x = document.getElementById("search").value;
-  document.getElementById("demo").innerHTML = x;
-
+  var x = document.getElementById('search').value;
+  // document.getElementById('demo').innerHTML = x;
+  console.log('https://ghibliapi.herokuapp.com/films?title=' + x);
+  request.open('GET', 'https://ghibliapi.herokuapp.com/films?title=' + x), true
+  request.send()
+}
 
 // zoekwoord =..... 
 request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
-// request.open('GET', 'https://ghibliapi.herokuapp.com/films?title=' + x), true
+// request.open('GET', 'https://ghibliapi.herokuapp.com/films?title=Castle in the Sky'), true
 
 request.onload = function () {
 
@@ -53,7 +56,6 @@ card.appendChild(p)
   console.log('error')
 
   
-}
 }
 }
 request.send()
