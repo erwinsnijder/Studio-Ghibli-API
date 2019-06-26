@@ -28,11 +28,13 @@ var data = JSON.parse(this.response)
 if (request.status >= 200 && request.status < 400) {
 data.forEach(movie => {
   
+console.log(movie.title)
+
 const card = document.createElement('div')
 card.setAttribute('class', 'card')
 
 const h1 = document.createElement('h1')
-h1.textContent = movie.title
+h1.textContent = movie.title + ' ' + movie.release_date
 
 const p = document.createElement('p')
 movie.description = movie.description.substring(0, 400)
@@ -49,6 +51,7 @@ card.appendChild(h1)
 card.appendChild(h2)
 card.appendChild(h3)
 card.appendChild(p)
+
 })
 
 } else
